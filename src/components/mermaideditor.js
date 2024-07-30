@@ -363,6 +363,7 @@ export default function Editor() {
             id="fileInput"
           />
           <button onClick={() => document.getElementById('fileInput').click()}>Import Data</button>
+          <button onClick={exportImage}>Export as Image</button>
         </div>
         <div class="full flex justify-center">
             <span class="half flex-1">
