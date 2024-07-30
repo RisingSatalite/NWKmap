@@ -2,6 +2,9 @@
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
 
+import domtoimage from 'dom-to-image';
+import { saveAs } from 'file-saver';
+
 const Mermaid = dynamic(() => import('@/components/mermaid'), { ssr: false });
 
 export default function Editor() {
@@ -339,7 +342,15 @@ export default function Editor() {
     };
   
     reader.readAsText(file);
-  };  
+  };
+
+  const exportImage = () => {
+    domtoimage.toBlob(document.getElementById("mermaid-diagram"))
+    .then(function (blob) {
+        var FileSaver = require('file-saver');
+        FileSaver.saveAs(blob, 'mindmap.png');
+    });
+  }
   
   return (
     <main>
