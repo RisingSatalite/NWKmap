@@ -360,7 +360,7 @@ export default function Editor() {
       // Remove the `data:image/svg+xml;charset=utf-8,` prefix
       const svgContent = dataUrl.replace(/^data:image\/svg\+xml;charset=utf-8,/, '');
       const svgBlob = new Blob([svgContent], { type: 'image/svg+xml;charset=utf-8' });
-      saveAs(svgBlob, 'mindmap.svg');
+      saveAs(svgBlob, 'nwkmap.svg');
     })
     .catch((error) => {
       console.error('Error converting HTML to SVG:', error);
